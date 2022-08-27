@@ -20,7 +20,7 @@ function loop() {
     case KeyState.Up: // ...
   }
 
-  requestANimationFrame(loop)
+  requestAnimationFrame(loop)
 }
 ```
 
