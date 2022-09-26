@@ -29,6 +29,9 @@ export class KeyStateObserver {
   }
 
   private handleKeyDown = (event: KeyboardEvent) => {
+    event.stopPropagation()
+    event.preventDefault()
+
     const key = mapKeyValueToKey(event.key)
     if (isntUndefined(key)) {
       this.keyToKeyState.set(key, KeyState.Down)
@@ -36,6 +39,9 @@ export class KeyStateObserver {
   }
 
   private handleKeyUp = (event: KeyboardEvent) => {
+    event.stopPropagation()
+    event.preventDefault()
+
     const key = mapKeyValueToKey(event.key)
     if (isntUndefined(key)) {
       this.keyToKeyState.set(key, KeyState.Up)
