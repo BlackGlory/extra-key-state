@@ -28,7 +28,7 @@ function loop() {
 ### KeyStateObserver
 ```ts
 class KeyStateObserver {
-  constructor(element: HTMLElement)
+  constructor(...elements: HTMLElement[])
 
   getKeyState(key: Key): KeyState
   close(): void
