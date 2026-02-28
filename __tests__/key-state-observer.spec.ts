@@ -1,7 +1,8 @@
-import userEvent from '@testing-library/user-event'
-import { KeyStateObserver } from '@src/key-state-observer'
-import { Key } from '@src/key'
-import { KeyState } from '@src/key-state'
+import { describe, test, expect } from 'vitest'
+import { userEvent } from '@testing-library/user-event'
+import { KeyStateObserver } from '@src/key-state-observer.js'
+import { Key } from '@src/key.js'
+import { KeyState } from '@src/key-state.js'
 
 describe('KeyStateObserver', () => {
   test('default state', () => {

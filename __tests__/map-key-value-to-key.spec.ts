@@ -1,5 +1,6 @@
-import { mapKeyValueToKey } from '@src/map-key-value-to-key'
-import { Key } from '@src/key'
+import { describe, test, expect } from 'vitest'
+import { mapKeyValueToKey } from '@src/map-key-value-to-key.js'
+import { Key } from '@src/key.js'
 
 describe('mapKeyValueToKey', () => {
   test('known key value', () => {

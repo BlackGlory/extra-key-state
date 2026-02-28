@@ -1,3 +1,3 @@
-export * from './key-state-observer'
-export * from './key'
-export * from './key-state'
+export * from './key-state-observer.js'
+export * from './key.js'
+export * from './key-state.js'

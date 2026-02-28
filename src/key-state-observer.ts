@@ -1,7 +1,7 @@
 import { isntUndefined } from '@blackglory/prelude'
-import { Key } from './key'
-import { KeyState } from './key-state'
-import { mapKeyValueToKey } from './map-key-value-to-key'
+import { Key } from './key.js'
+import { KeyState } from './key-state.js'
+import { mapKeyValueToKey } from './map-key-value-to-key.js'
 
 export class KeyStateObserver {
   private keyToKeyState: Map<Key, KeyState> = new Map()

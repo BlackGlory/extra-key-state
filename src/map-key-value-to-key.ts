@@ -1,4 +1,4 @@
-import { Key } from './key'
+import { Key } from './key.js'
 
 export function mapKeyValueToKey(keyValue: string): Key | undefined {
   switch (keyValue) {
