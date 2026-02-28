@@ -11,7 +11,7 @@ yarn add extra-key-state
 import { KeyStateObserver, Key, KeyState } from 'extra-key-state'
 
 const element = document.querySelector('canvas')
-const observer = new KeyStateObserver(element)
+const observer = new KeyStateObserver([element])
 loop()
 
 function loop() {
@@ -28,7 +28,12 @@ function loop() {
 ### KeyStateObserver
 ```ts
 class KeyStateObserver {
-  constructor(...elements: HTMLElement[])
+  constructor(
+    elements: HTMLElement[]
+  , options?: {
+      onBeforeKeyEvent?: (event: KeyboardEvent) => void
+    }
+  )
 
   getKeyState(key: Key): KeyState
   close(): void

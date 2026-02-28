@@ -5,15 +5,17 @@ import { mapKeyValueToKey } from './map-key-value-to-key.js'
 
 export class KeyStateObserver {
   private keyToKeyState: Map<Key, KeyState> = new Map()
-  private elements: HTMLElement[]
 
-  constructor(...elements: HTMLElement[]) {
+  constructor(
+    private elements: HTMLElement[]
+  , private options: {
+      onBeforeKeyEvent?: (event: KeyboardEvent) => void
+    } = {}
+  ) {
     for (const element of elements) {
       element.addEventListener('keydown', this.handleKeyDown)
       element.addEventListener('keyup', this.handleKeyUp)
     }
-
-    this.elements = elements
   }
 
   getKeyState(key: Key): KeyState {
@@ -29,8 +31,7 @@ export class KeyStateObserver {
   }
 
   private handleKeyDown = (event: KeyboardEvent) => {
-    event.stopPropagation()
-    event.preventDefault()
+    this.options.onBeforeKeyEvent?.(event)
 
     const key = mapKeyValueToKey(event.key)
     if (isntUndefined(key)) {
@@ -39,8 +40,7 @@ export class KeyStateObserver {
   }
 
   private handleKeyUp = (event: KeyboardEvent) => {
-    event.stopPropagation()
-    event.preventDefault()
+    this.options.onBeforeKeyEvent?.(event)
 
     const key = mapKeyValueToKey(event.key)
     if (isntUndefined(key)) {
